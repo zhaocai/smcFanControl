@@ -35,6 +35,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		B4D2DCA5160285B700256741 /* AirplaneModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DCA4160285B700256741 /* AirplaneModeController.m */; };
+		B4D2DCA81602868400256741 /* AirplaneModeController.nib in Resources */ = {isa = PBXBuildFile; fileRef = B4D2DCA71602868400256741 /* AirplaneModeController.nib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +123,9 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* smcFanControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smcFanControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B43C610916012BFB00977E34 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
+		B4D2DCA3160285B700256741 /* AirplaneModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirplaneModeController.h; sourceTree = "<group>"; };
+		B4D2DCA4160285B700256741 /* AirplaneModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirplaneModeController.m; sourceTree = "<group>"; };
+		B4D2DCA71602868400256741 /* AirplaneModeController.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = AirplaneModeController.nib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +157,8 @@
 			children = (
 				894A465F0ADBD6CF008785F3 /* FanControl.h */,
 				894A46600ADBD6CF008785F3 /* FanControl.m */,
+				B4D2DCA3160285B700256741 /* AirplaneModeController.h */,
+				B4D2DCA4160285B700256741 /* AirplaneModeController.m */,
 				891683E70AEBD95B00888535 /* smcWrapper.h */,
 				891683E80AEBD95B00888535 /* smcWrapper.m */,
 				89949E8B0AEEA37700077E93 /* Power.h */,
@@ -226,10 +233,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				89FE24210B7F4CD300D2713C /* MainMenu.nib */,
+				B4D2DCA71602868400256741 /* AirplaneModeController.nib */,
 				89559A830BAC338400DBA37E /* smcover.png */,
 				8987FBD00B878B3900A5ED8E /* smc.png */,
 				89033CA60B80E1EB00FDAF43 /* F.A.Q.rtf */,
-				89FE24210B7F4CD300D2713C /* MainMenu.nib */,
 				89B2431F0B7E351000CAD103 /* smcfancontrol_v2.icns */,
 				8917FB850ADEECAD00443DA1 /* paypal.gif */,
 				89E7D3640ADE819B000F67AB /* Machines.plist */,
@@ -346,6 +354,7 @@
 				8987FBD20B878B3900A5ED8E /* smc.png in Resources */,
 				89559A840BAC338500DBA37E /* smcover.png in Resources */,
 				899D59E315E228DF003E322D /* tsensors.plist in Resources */,
+				B4D2DCA81602868400256741 /* AirplaneModeController.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +382,7 @@
 				892A7F450B10B7700041B493 /* MachineDefaults.m in Sources */,
 				8932CF2413D08551008BC447 /* SystemVersion.m in Sources */,
 				89148EA315E2543D00A073EE /* NSFileManager+DirectoryLocations.m in Sources */,
+				B4D2DCA5160285B700256741 /* AirplaneModeController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

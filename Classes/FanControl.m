@@ -196,7 +196,10 @@ NSString *authpw;
 	//init statusitem
 	[self init_statusitem];
 
-	
+    //configure airplane mode
+    [self init_airplane];
+
+	//init about
 	[programinfo setStringValue: [NSString stringWithFormat:@"%@ %@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
 	,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] ]];
 	//
@@ -223,6 +226,7 @@ NSString *authpw;
 	//add timer for reading to RunLoop
 	_readTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(readFanData:) userInfo:nil repeats:YES];
 	[_readTimer fire];
+
 	//autoapply settings if valid
 	[self upgradeFavorites];
     
@@ -244,7 +248,31 @@ NSString *authpw;
 	};
 }
 
+- (void)init_airplane {
+    double min=MAXFLOAT, max=MAXFLOAT, sel=MAXFLOAT;
+    for (NSDictionary *fan in [s_sed objectForKey:@"Fans"]) {
+        min = MIN(min, [[fan valueForKey:@"Minspeed"] doubleValue]);
+        max = MIN(max, [[fan valueForKey:@"Maxspeed"] doubleValue]);
+        sel = MIN(sel, [[fan valueForKey:@"selspeed"] doubleValue]);
+    }
+    plane = [[AirplaneModeController alloc] initWithMin:min max:max selected:sel];
+    
+    plane.changeHandler = ^(double requestedRPM) {
+        NSNumber *rpm = [NSNumber numberWithDouble:requestedRPM];
+        [smcWrapper setKey_external:[NSString stringWithFormat:@"F%dMn",0] value:[rpm tohex]];
+    };
+    
+    [theMenu insertItem:[NSMenuItem separatorItem] atIndex:0];
+    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Airplane" action:@selector(showAirplaneMode:) keyEquivalent:@""];
+    item.target = self;
+    [theMenu insertItem:item atIndex:0];
+}
 #pragma mark **Action-Methods**
+
+- (IBAction)showAirplaneMode:(id)sender {
+    [plane showWindow:sender];
+}
+
 - (IBAction)loginItem:(id)sender{
 	if ([sender state]==NSOnState) {
 		[self setStartAtLogin:YES];
@@ -406,7 +434,12 @@ NSString *authpw;
 	}
     
     //--- NOTIFICATION CENTER
-    [self sendNotificationIfNeeded:fan.doubleValue];
+    if([[defaults objectForKey:@"NotificationCenter"] boolValue])
+        [self sendNotificationIfNeeded:fan.doubleValue];
+    
+    plane.temperature = temp.integerValue;
+    plane.fanSpeed = fan.doubleValue;
+    
 }
 
 - (void)sendNotificationIfNeeded:(double)newFanValue {
@@ -450,13 +483,10 @@ NSString *authpw;
     
     //do notifications IF we want to
 //    NSLog(@"Post %d", [[defaults objectForKey:@"NotificationCenter"] boolValue]);
-    
-    BOOL postEnabled = [[defaults objectForKey:@"NotificationCenter"] boolValue];
-    if(postEnabled) {
-        NSUserNotification *note = [[NSUserNotification alloc] init];
-        note.title = [NSString stringWithFormat:@"Fan at %f rpm", newFanValue];
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
-    }
+    [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
+    NSUserNotification *note = [[NSUserNotification alloc] init];
+    note.title = [NSString stringWithFormat:@"Fan at %f RPM", newFanValue];
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
     
     //save
     _oldFanValue = newFanValue;

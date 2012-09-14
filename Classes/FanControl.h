@@ -34,6 +34,7 @@
 #include <IOKit/pwr_mgt/IOPMLib.h>
 #include <IOKit/IOMessage.h>
 
+#import "AirplaneModeController.h"
 
 #define kMenuBarHeight				22
 
@@ -41,6 +42,8 @@
 @interface FanControl : NSObject
 
 {
+    AirplaneModeController *plane;
+    
     IBOutlet id currentSpeed;
 	IBOutlet id currentSpeed1;
 	
