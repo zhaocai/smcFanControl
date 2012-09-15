@@ -21,6 +21,7 @@ typedef void (^AirplaneBlock)(double requestedRM);
     IBOutlet NSSlider *airplaneThrustLeverRPMSlider;
     IBOutlet NSTextField *airplaneActualRPM;
     IBOutlet NSSlider *airplaneActualRPMSlider;
+    IBOutlet NSImageView *airplaneActualRPMImageView;
 }
 
 - (id)initWithMin:(double)min max:(double)max selected:(double)selected;

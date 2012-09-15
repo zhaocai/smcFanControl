@@ -35,6 +35,13 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		B48117DB1603E9660077580B /* ScrollableSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B48117DA1603E9660077580B /* ScrollableSlider.m */; };
+		B48117DF1603F5680077580B /* NSAnimationForSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B48117DE1603F5680077580B /* NSAnimationForSlider.m */; };
+		B48117E4160478F50077580B /* airplane_flying.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B48117E0160478F50077580B /* airplane_flying.jpg */; };
+		B48117E5160478F50077580B /* airplane_landing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B48117E1160478F50077580B /* airplane_landing.jpg */; };
+		B48117E6160478F50077580B /* airplane_stopped.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B48117E2160478F50077580B /* airplane_stopped.jpg */; };
+		B48117E7160478F50077580B /* airplane_takeoff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B48117E3160478F50077580B /* airplane_takeoff.jpg */; };
+		B48117EA16047B550077580B /* DDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B48117E916047B550077580B /* DDImageView.m */; };
 		B4D2DCA5160285B700256741 /* AirplaneModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D2DCA4160285B700256741 /* AirplaneModeController.m */; };
 		B4D2DCA81602868400256741 /* AirplaneModeController.nib in Resources */ = {isa = PBXBuildFile; fileRef = B4D2DCA71602868400256741 /* AirplaneModeController.nib */; };
 /* End PBXBuildFile section */
@@ -123,6 +130,16 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* smcFanControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smcFanControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B43C610916012BFB00977E34 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
+		B48117D91603E9660077580B /* ScrollableSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollableSlider.h; sourceTree = "<group>"; };
+		B48117DA1603E9660077580B /* ScrollableSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollableSlider.m; sourceTree = "<group>"; };
+		B48117DD1603F5680077580B /* NSAnimationForSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAnimationForSlider.h; sourceTree = "<group>"; };
+		B48117DE1603F5680077580B /* NSAnimationForSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSAnimationForSlider.m; sourceTree = "<group>"; };
+		B48117E0160478F50077580B /* airplane_flying.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = airplane_flying.jpg; sourceTree = "<group>"; };
+		B48117E1160478F50077580B /* airplane_landing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = airplane_landing.jpg; sourceTree = "<group>"; };
+		B48117E2160478F50077580B /* airplane_stopped.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = airplane_stopped.jpg; sourceTree = "<group>"; };
+		B48117E3160478F50077580B /* airplane_takeoff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = airplane_takeoff.jpg; sourceTree = "<group>"; };
+		B48117E816047B550077580B /* DDImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDImageView.h; sourceTree = "<group>"; };
+		B48117E916047B550077580B /* DDImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDImageView.m; sourceTree = "<group>"; };
 		B4D2DCA3160285B700256741 /* AirplaneModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirplaneModeController.h; sourceTree = "<group>"; };
 		B4D2DCA4160285B700256741 /* AirplaneModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirplaneModeController.m; sourceTree = "<group>"; };
 		B4D2DCA71602868400256741 /* AirplaneModeController.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = AirplaneModeController.nib; sourceTree = "<group>"; };
@@ -171,6 +188,12 @@
 				892A7F440B10B7700041B493 /* MachineDefaults.m */,
 				8932CF2213D0850F008BC447 /* SystemVersion.h */,
 				8932CF2313D08551008BC447 /* SystemVersion.m */,
+				B48117D91603E9660077580B /* ScrollableSlider.h */,
+				B48117DA1603E9660077580B /* ScrollableSlider.m */,
+				B48117DD1603F5680077580B /* NSAnimationForSlider.h */,
+				B48117DE1603F5680077580B /* NSAnimationForSlider.m */,
+				B48117E816047B550077580B /* DDImageView.h */,
+				B48117E916047B550077580B /* DDImageView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -234,6 +257,10 @@
 			isa = PBXGroup;
 			children = (
 				89FE24210B7F4CD300D2713C /* MainMenu.nib */,
+				B48117E0160478F50077580B /* airplane_flying.jpg */,
+				B48117E1160478F50077580B /* airplane_landing.jpg */,
+				B48117E2160478F50077580B /* airplane_stopped.jpg */,
+				B48117E3160478F50077580B /* airplane_takeoff.jpg */,
 				B4D2DCA71602868400256741 /* AirplaneModeController.nib */,
 				89559A830BAC338400DBA37E /* smcover.png */,
 				8987FBD00B878B3900A5ED8E /* smc.png */,
@@ -355,6 +382,10 @@
 				89559A840BAC338500DBA37E /* smcover.png in Resources */,
 				899D59E315E228DF003E322D /* tsensors.plist in Resources */,
 				B4D2DCA81602868400256741 /* AirplaneModeController.nib in Resources */,
+				B48117E4160478F50077580B /* airplane_flying.jpg in Resources */,
+				B48117E5160478F50077580B /* airplane_landing.jpg in Resources */,
+				B48117E6160478F50077580B /* airplane_stopped.jpg in Resources */,
+				B48117E7160478F50077580B /* airplane_takeoff.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +414,9 @@
 				8932CF2413D08551008BC447 /* SystemVersion.m in Sources */,
 				89148EA315E2543D00A073EE /* NSFileManager+DirectoryLocations.m in Sources */,
 				B4D2DCA5160285B700256741 /* AirplaneModeController.m in Sources */,
+				B48117DB1603E9660077580B /* ScrollableSlider.m in Sources */,
+				B48117DF1603F5680077580B /* NSAnimationForSlider.m in Sources */,
+				B48117EA16047B550077580B /* DDImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
