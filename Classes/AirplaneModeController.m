@@ -42,13 +42,14 @@
         [airplaneThrustLeverRPMSlider.animator setDoubleValue:fanSpeed];
         airplaneThrustLeverRPM.doubleValue = fanSpeed;
     }
+    else {
+        NSAnimationForSlider *sliderAnimation = [[NSAnimationForSlider alloc] initWithDuration:2.0 animationCurve:NSAnimationEaseIn];
+        [sliderAnimation setAnimationBlockingMode:NSAnimationNonblocking];
+        [sliderAnimation setDelegateSlider:airplaneActualRPMSlider];
+        [sliderAnimation setAnimateToValue:fanSpeed];
+        [sliderAnimation startAnimation];
+    }
     
-    NSAnimationForSlider *sliderAnimation = [[NSAnimationForSlider alloc] initWithDuration:2.0 animationCurve:NSAnimationEaseIn];
-    [sliderAnimation setAnimationBlockingMode:NSAnimationNonblocking];
-    [sliderAnimation setDelegateSlider:airplaneActualRPMSlider];
-    [sliderAnimation setAnimateToValue:fanSpeed];
-    [sliderAnimation startAnimation];
-
     //--- NOTIFICATION CENTER
     [self speakNotificationAndUpdateUI:fanSpeed];
 }
