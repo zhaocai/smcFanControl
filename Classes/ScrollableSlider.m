@@ -12,17 +12,10 @@
 
 - (void)scrollWheel:(NSEvent*) event
 {
-    static int factor = 0;
-    if(!factor) {
-        //HACK TO GET IT TO REVERSE
-        id path = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Preferences/.GlobalPreferences.plist"];
-        id dict = [NSDictionary dictionaryWithContentsOfFile:path];
-        id value = [dict objectForKey:@"com.apple.swipescrolldirection"];
-        if(value)
-            factor = ![value boolValue] ? -1 : 1;
-        else
-            factor = 1;
-    }
+    int factor = 0;
+    //GET IT TO REVERSE
+    BOOL value = [event isDirectionInvertedFromDevice];
+    factor = value ? -1 : 1;
     
     float range = [self maxValue] - [self minValue];
     float increment = (range * [event deltaY]) / 100;
