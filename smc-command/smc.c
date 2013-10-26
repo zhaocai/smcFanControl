@@ -25,6 +25,7 @@
 
 #include "smc.h"
 
+bool is_concise = FALSE;
 io_connect_t conn;
 
 UInt32 _strtoul(char *str, int size, int base)
@@ -205,7 +206,11 @@ void printBytesHex(SMCVal_t val)
 
 void printVal(SMCVal_t val)
 {
-	printf("  %-4s  [%-4s]  ", val.key, val.dataType);
+
+	if (is_concise)
+		printf(":%-4s => ", val.key);
+	else
+		printf("%-4s  [%-4s]  ", val.key, val.dataType);
 	if (val.dataSize > 0)
 	{
 		if ((strcmp(val.dataType, DATATYPE_UINT8) == 0) ||
@@ -257,11 +262,14 @@ void printVal(SMCVal_t val)
 		else if (strcmp(val.dataType, DATATYPE_PWM) == 0 && val.dataSize == 2)
 			printPWM(val);
 
-		printBytesHex(val);
+		if (!is_concise)
+			printBytesHex(val);
+		else
+			printf(",\n");
 	}
 	else
 	{
-		printf("no data\n");
+		printf("nil,\n");
 	}
 }
 
@@ -562,14 +570,14 @@ void usage(char* prog)
 	printf("Apple System Management Control (SMC) tool %s\n", VERSION);
 	printf("Usage:\n");
 	printf("%s [options]\n", prog);
-	printf("    -f         : fan info decoded\n");
-	printf("    -h         : help\n");
-	printf("    -k <key>   : key to manipulate. \
-				 Use , to separate multiple keys\nn");
-	printf("    -l         : list all keys and values\n");
-	printf("    -r         : read the value of a key\n");
-	printf("    -w <value> : write the specified value to a key\n");
-	printf("    -v         : version\n");
+	printf("    -f                 : fan info decoded\n");
+	printf("    -h                 : help\n");
+	printf("    -c                 : consice output\n");
+	printf("    -k <key1,key2,...> : keys to manipulate\n");
+	printf("    -l                 : list all keys and values\n");
+	printf("    -r                 : read the value of a key\n");
+	printf("    -w <value>         : write the specified value to a key\n");
+	printf("    -v                 : version\n");
 	printf("\n");
 }
 
@@ -598,6 +606,7 @@ kern_return_t SMCWriteSimple(UInt32Char_t key,char *wvalue,io_connect_t conn)
 #ifdef CMD_TOOL
 int main(int argc, char *argv[])
 {
+
 	int c;
 	extern char   *optarg;
 
@@ -610,7 +619,7 @@ int main(int argc, char *argv[])
 	char *token;
 
 
-	while ((c = getopt(argc, argv, "fhk:lrw:v")) != -1)
+	while ((c = getopt(argc, argv, "fhk:lcrw:v")) != -1)
 	{
 		switch(c)
 		{
@@ -625,6 +634,9 @@ int main(int argc, char *argv[])
 			break;
 		case 'r':
 			op = OP_READ;
+			break;
+		case 'c':
+			is_concise = TRUE;
 			break;
 		case 'v':
 			printf("%s\n", VERSION);
