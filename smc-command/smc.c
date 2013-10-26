@@ -476,7 +476,7 @@ UInt32 SMCReadIndexCount(void)
     SMCVal_t val;
 
     SMCReadKey("#KEY", &val);
-    return _strtoul(val.bytes, val.dataSize, 10);
+    return _strtoul(val.bytes, val.dataSize, 16);
 }
 
 kern_return_t SMCPrintAll(void)

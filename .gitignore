@@ -1,5 +1,34 @@
-/build/
-/smcFanControl.xcodeproj/project.xcworkspace/xcuserdata/dominik.xcuserdatad/
-/smcFanControl.xcodeproj/xcuserdata/dominik.xcuserdatad/
-/InfoPlist.h
+# Exclude the build directory
+build/*
+
+# Xcode
+.DS_Store
+*/build/*
+*.pbxuser
+!default.pbxuser
+*.mode1
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspective
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+*.xcworkspace
+.idea/
+*.hmap
+*.xccheckout
+
+#CocoaPods
+Pods 
+
+# Exclude temp nibs and swap files
+*~.nib
+*.swp
+
+# Exclude OS X folder attributes
 .DS_Store
