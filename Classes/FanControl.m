@@ -373,7 +373,7 @@ NSString *authpw;
 		}
 	}
 	
-	fan=[NSString stringWithFormat:@"%@rpm",[nc stringForObjectValue:[NSNumber numberWithFloat:[smcWrapper get_fan_rpm:selected]]]];
+	fan=[NSString stringWithFormat:@"%@",[nc stringForObjectValue:[NSNumber numberWithFloat:[smcWrapper get_fan_rpm:selected]]]];
 
 	if ([[defaults objectForKey:@"MenuBar"] intValue]<=1) { 
 		NSString *add;
